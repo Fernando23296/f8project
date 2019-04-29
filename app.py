@@ -35,6 +35,11 @@ def receive_message():
     return "Message Processed"
 
 
+def verify_fb_token(token_sent):
+    if token_sent == VERIFY_TOKEN:
+        return request.args.get("hub.challenge")
+    return 'Invalid verification token'
+
 
 if __name__ == "__main__":
     app.run()
